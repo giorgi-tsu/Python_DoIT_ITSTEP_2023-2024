@@ -5,5 +5,11 @@
 from flask import Flask
 
 # Creating Flask instance
-# app = Flask(__name__)
-print(__name__)
+app = Flask(__name__)
+app.run()
+
+# 2024-02-19_00-34-18
+
+# if __name__ == "__main__":
+#     pass
+
