@@ -9,10 +9,12 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "<h1>Hello I am here</h1>"
+    # return "<h1>Hello I am here</h1>"
+    return "Hello I am here"
 
 
-app.run()
+app.run(debug=True) # თუ ამას დავუწერ მაშინ დარეფრეშებითაც 
+                    # აღიქვამს ცვლილებებს.
 
 # 2024-02-19_00-34-18
 
