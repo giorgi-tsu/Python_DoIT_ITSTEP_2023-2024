@@ -18,6 +18,8 @@ def about():
 
 # 2024-02-19_00-46-46
 
+# This is for testing purposes.
+
 if __name__ == "__main__":
     app.run(debug=True) # თუ ამას დავუწერ მაშინ დარეფრეშებითაც 
                     # აღიქვამს ცვლილებებს.
