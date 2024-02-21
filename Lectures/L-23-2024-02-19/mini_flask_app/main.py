@@ -16,6 +16,7 @@ def home():
 def about():
     return "<h1>About</h1>"
 
+# 2024-02-19_00-46-46
 
 if __name__ == "__main__":
     app.run(debug=True) # თუ ამას დავუწერ მაშინ დარეფრეშებითაც 
