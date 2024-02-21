@@ -13,11 +13,8 @@ def home():
     return "Hello I am here"
 
 
-app.run(debug=True) # თუ ამას დავუწერ მაშინ დარეფრეშებითაც 
+
+if __name__ == "__main__":
+    app.run(debug=True) # თუ ამას დავუწერ მაშინ დარეფრეშებითაც 
                     # აღიქვამს ცვლილებებს.
-
-# 2024-02-19_00-34-18
-
-# if __name__ == "__main__":
-#     pass
 
