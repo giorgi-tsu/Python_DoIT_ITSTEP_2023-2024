@@ -21,7 +21,8 @@ def about():
 # This is for testing purposes.
 
 if __name__ == "__main__":
-    app.run(debug=True) # თუ ამას დავუწერ მაშინ დარეფრეშებითაც 
-                    # აღიქვამს ცვლილებებს.
+    app.run(debug=True) # თუ ამას (debug) დავუწერ, მაშინ
+    # დარეფრეშებითაც აღიქვამს ცვლილებებს.
+
 
 
