@@ -24,7 +24,12 @@ def about():
     obj1 = ProductModel("Red Bull Zero", "0% Sugar", 5 )
     obj2 = ProductModel("Red Energy Drink", "Vitalizes Body and Mind", 6)
     obj3 = ProductModel("Red Bull Sugarfree", "Something", 7)
-    return "<h1>About</h1>"
+    
+    obj_list = [obj1, obj2, obj3]
+
+    return render_template("about.html", obj_list=obj_list)
+
+    # return "<h1>About</h1>"
 
 if __name__ == "__main__":
     app.run(debug=True) # თუ ამას (debug) დავუწერ, მაშინ
