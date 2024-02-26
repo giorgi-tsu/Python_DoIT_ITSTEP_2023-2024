@@ -2,15 +2,19 @@
 # ფუნქციას.
 
 # Importing libraries
-from flask import Flask
+from flask import Flask, render_template
+
+# render_template გვაძლევს საშუალებას დავარენდეროთ HTML-ის გვერდი.
 
 # Creating Flask instance
 app = Flask(__name__)
 
 @app.route("/")
+@app.route("/home")
 def home():
     # return "<h1>Hello I am here</h1>"
-    return "Hello I am here"
+    # return "Hello I am here"
+    return render_template("home.html")
 
 @app.route("/about")
 def about():
