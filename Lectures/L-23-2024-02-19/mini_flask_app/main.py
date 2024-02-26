@@ -4,6 +4,8 @@
 # Importing libraries
 from flask import Flask, render_template
 
+from models import ProductModel 
+
 # render_template გვაძლევს საშუალებას დავარენდეროთ HTML-ის გვერდი.
 
 # Creating Flask instance
@@ -18,6 +20,10 @@ def home():
 
 @app.route("/about")
 def about():
+    # ვითომ ინფორმაცია მოგვაქვს მონაცემთა ბაზიდან
+    obj1 = ProductModel("Red Bull Zero", "0% Sugar", 5 )
+    obj2 = ProductModel("Red Energy Drink", "Vitalizes Body and Mind", 6)
+    obj3 = ProductModel("Red Bull Sugarfree", "Something", 7)
     return "<h1>About</h1>"
 
 if __name__ == "__main__":
