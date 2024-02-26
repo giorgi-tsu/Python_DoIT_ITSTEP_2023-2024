@@ -4,7 +4,8 @@
 # Importing libraries
 from flask import Flask, render_template
 
-from models import ProductModel 
+from models import ProductModel # model ფაილიდან შემოგვაქვს
+# ProductModel კლასი
 
 # render_template გვაძლევს საშუალებას დავარენდეროთ HTML-ის გვერდი.
 
@@ -21,13 +22,17 @@ def home():
 @app.route("/about")
 def about():
     # ვითომ ინფორმაცია მოგვაქვს მონაცემთა ბაზიდან
-    obj1 = ProductModel("Red Bull Zero", "0% Sugar", 5 )
-    obj2 = ProductModel("Red Energy Drink", "Vitalizes Body and Mind", 6)
-    obj3 = ProductModel("Red Bull Sugarfree", "Something", 7)
+    prod_1 = ProductModel("Red Bull Zero", "0% Sugar 100% wiings", 5)
+    prod_2 = ProductModel("Red Bull Energy Drink", 
+                        "Vitalizes Body and Mind", 6)
+    prod_3 = ProductModel("Red Bull Sugarfree",
+                          "Sugarfree Wiings", 7)
     
-    obj_list = [obj1, obj2, obj3]
+    prod_list = [prod_1, prod_2, prod_3]
+    print(prod_list)
+    print("I ran")
 
-    return render_template("about.html", obj_list=obj_list)
+    return render_template("about.html", products=prod_list)
 
     # return "<h1>About</h1>"
 
