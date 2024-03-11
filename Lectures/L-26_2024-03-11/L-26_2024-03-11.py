@@ -1,34 +1,32 @@
-class Customer:
-    def __init__(self, name, email):
-        self.name = name
-        self.email = email
+# SOLID Principles
 
-    def send_mail(self, message):
-        pass
+# The Single Responsibility Principle (SRP)
 
-    def place_order(self, order):
-        pass
+# The SRP comes from Robert C. Martin founder of the term SOLID
 
-    def generate_invoice(self, onvoice):
-        pass
+# The SRP states: "A class should have only one reason to change"
 
-    def add_feedback(self, feedback):
-        pass
+# This means that a class should have only one responsibility, as
+# expressed through its methods. If a class takes care of more than
+# one task than you should seperate those tasks into classes.
 
+from pathlib import Path
+from zipfile import ZipFile
 
-#correct
-class Customer:
-    def __init__(self, name, email):
-        self.name = name
-        self.email = email
+class FileManager:
+    def __init__(self, filename):
+        self.path = Path(filename)
 
-    def __repr__(self):
-        return self.name
-
-class EmailService:
-    def send_mail(self, customer, message):
-        pass
+    def read(self, encoding="urf-8"):
+        return self.path.read_text(encoding)
     
-customer1 = Customer("Giorgi", "giorgi.tsu@gmail.com")
-print(customer1)
+    def write(self, data,  encoding="urf-8"):
+        self.path.write_text(data, encoding)
 
+    def compress(self):
+        with ZipFile(self.path.with_suffix(".zip"), mode="w") as archive:
+            archive.write(self.path)
+
+    def decompress(self):
+        with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
+            archive.extractall()
