@@ -17,10 +17,10 @@ class FileManager:
     def __init__(self, filename):
         self.path = Path(filename)
 
-    def read(self, encoding="urf-8"):
+    def read(self, encoding="utf-8"):
         return self.path.read_text(encoding)
     
-    def write(self, data,  encoding="urf-8"):
+    def write(self, data,  encoding="utf-8"):
         self.path.write_text(data, encoding)
 
     def compress(self):
@@ -30,3 +30,9 @@ class FileManager:
     def decompress(self):
         with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
             archive.extractall()
+
+file_manager = FileManager("Lectures/L-26_2024-03-11/example.txt")
+print(file_manager.path)
+file_manager.write("Hello, World")
+print(type(file_manager.read()))
+print(file_manager.read())
