@@ -36,10 +36,31 @@ class FileManager:
         with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
             archive.extractall()
 
-# Example of using FileManager clas s
+# Example of using FileManager class
 
 file_manager = FileManager("Lectures/L-26_2024-03-11/example.txt")
 print(file_manager.path)
-file_manager.write("Hello, World")
+file_manager.write("Hello, World!")
+print(type(file_manager.read()))
+print(file_manager.read())
+
+# Splitting the FileManager class into two smalle, more focused
+# classes, each with its own specific concerns:
+
+class FileManager:
+
+    def __init__(self, filename):
+        self.path = Path(filename)
+    
+    def read(self, encoding="utf-8"):
+        return self.path.read_text(encoding)
+    
+    def write(self, data, encoding="utf-8"):
+        self.path.write_text(data, encoding)
+
+file_manager = FileManager("Lectures/L-26_2024-03-11/"\
+                           "example_SRP.txt")
+print(file_manager.path)
+file_manager.write("Hello, World with SRP!")
 print(type(file_manager.read()))
 print(file_manager.read())
