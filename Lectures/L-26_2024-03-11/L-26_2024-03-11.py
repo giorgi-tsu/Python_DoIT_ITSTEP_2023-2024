@@ -1,8 +1,8 @@
 # SOLID Principles
 
-# The Single Responsibility Principle (SRP)
+# 1. The Single Responsibility Principle (SRP)
 
-# The SRP comes from Robert C. Martin founder of the term SOLID
+# The SRP comes from Robert C. Martin, the founder of the term SOLID.
 
 # The SRP states: "A class should have only one reason to change"
 
@@ -83,4 +83,31 @@ class ZipFileManager:
         with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
             archive.extractall()
 
+
 # Need to understand using ZipFIle later
+
+# 2. The Open-Closed Principle (OCP)
+
+# The open-closed principle for object-oriented design was first
+# introduced by Bertrand Meyer in 1988 and means that:
+
+# "Software entities (classes, modules, functions, etc.) should
+# be open for extension but closed for modification." 
+
+from math import pi
+
+class Shape:
+    def __init__(self, shape_type, **kwargs):
+        self.shape_type = shape_type
+        if self.shape_type == "rectangle":
+            self.width = kwargs["width"]
+            self.height = kwargs["height"]
+        elif self.shape_type == "circle":
+            self.radius = kwargs["radius"]
+
+    def calculate_area(self):
+        if self.shape_type == "rectangle":
+            return self.width * self.height
+        elif self.shape_type == "circle":
+            return pi * self.radius ** 2
+
