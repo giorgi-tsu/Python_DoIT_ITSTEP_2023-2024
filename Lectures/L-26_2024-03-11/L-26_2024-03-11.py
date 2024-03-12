@@ -36,7 +36,8 @@ class FileManager:
         with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
             archive.extractall()
 
-# Example of using FileManager class
+
+# Using FileManager class
 
 file_manager = FileManager("Lectures/L-26_2024-03-11/example.txt")
 print(file_manager.path)
@@ -44,7 +45,7 @@ file_manager.write("Hello, World!")
 print(type(file_manager.read()))
 print(file_manager.read())
 
-# Splitting the FileManager class into two smalle, more focused
+# Splitting the FileManager class into two smaller, more focused
 # classes, each with its own specific concerns:
 
 class FileManager:
@@ -58,9 +59,28 @@ class FileManager:
     def write(self, data, encoding="utf-8"):
         self.path.write_text(data, encoding)
 
+
+# Using FileManager class
+
 file_manager = FileManager("Lectures/L-26_2024-03-11/"\
                            "example_SRP.txt")
 print(file_manager.path)
 file_manager.write("Hello, World with SRP!")
 print(type(file_manager.read()))
 print(file_manager.read())
+
+
+class ZipFileManager:
+
+    def __init__(self, filename):
+        self.path = Path(filename)
+
+    def compress(self):
+        with ZipFile(self.path.with_suffix(".zip"), mode="w") as archive:
+            archive.write(self.path)
+
+    def decompress(self):
+        with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
+            archive.extractall()
+
+# Need to understand using ZipFIle later
