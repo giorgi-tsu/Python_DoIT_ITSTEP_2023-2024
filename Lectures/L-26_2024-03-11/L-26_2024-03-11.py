@@ -13,6 +13,11 @@
 from pathlib import Path
 from zipfile import ZipFile
 
+# The class below violates SRP because it has two different 
+# responsibilities. One is using .read() and .write() for managing 
+# the file and another is using .compress() and .decompress() for 
+# dealing with ZIP archives.
+
 class FileManager:
     def __init__(self, filename):
         self.path = Path(filename)
