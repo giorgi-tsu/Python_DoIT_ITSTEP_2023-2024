@@ -36,6 +36,8 @@ class FileManager:
         with ZipFile(self.path.with_suffix(".zip"), mode="r") as archive:
             archive.extractall()
 
+# Example of using FileManager clas s
+
 file_manager = FileManager("Lectures/L-26_2024-03-11/example.txt")
 print(file_manager.path)
 file_manager.write("Hello, World")
