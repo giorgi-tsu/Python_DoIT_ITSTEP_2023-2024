@@ -86,6 +86,7 @@ class ZipFileManager:
 
 # Need to understand using ZipFIle later
 
+print("------------2. The Open-Closed Principle (OCP)-----------")
 
 # 2. The Open-Closed Principle (OCP)
 
@@ -101,8 +102,6 @@ class Shape:
     def __init__(self, shape_type, **kwargs):
         self.shape_type = shape_type
         if self.shape_type == "rectangle":
-            print(kwargs)
-            print(type(kwargs))
             self.width = kwargs["width"]
             self.height = kwargs["height"]
         elif self.shape_type == "circle":
@@ -115,6 +114,14 @@ class Shape:
             return pi * self.radius ** 2
 
 
+# Using the Shape class that violates the OCP
+
+rectangle = Shape("rectangle", width=10, height=5)
+print(rectangle.calculate_area())
+
+circle = Shape("circle", radius=5)
+print(circle.calculate_area())
+
 # The Shape class above violates the OPC because if you need to add
 # a new shape, for example, square, you must modify the internal
 # code of the class. For example, you need to add another elif 
@@ -126,24 +133,13 @@ class Shape:
 # to fix your class to make it open for extension but closed for 
 # modification:
 
-# Example of using the Shape class that violates the OCP.
-            
-from shapes_ocp import Shape
-
-rectangle = Shape("rectangle", width=10, height=5)
-print(rectangle.calculate_area())
-
-circle = Shape("circle", radius=5)
-print(circle.calculate_area())
-
-
 from abc import ABC, abstractmethod
 from math import pi
 
 class Shape(ABC):
     def __init__(self, shape_type):
         self.shape_type = shape_type
-    
+
     @abstractmethod
     def calculate_area(self):
         pass
@@ -156,5 +152,10 @@ class Circle(Shape):
     def calculate_area(self):
         return pi * self.radius ** 2
 
+
+# Using the Shape class that violates the OCP
+    
 circle = Circle(radius=5)
 print(circle.calculate_area())
+print(circle.calculate_area)
+print(Shape)
