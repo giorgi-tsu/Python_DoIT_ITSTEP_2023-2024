@@ -166,9 +166,31 @@ class Circle(Shape):
         return pi * self.radius ** 2
 
 
+# Adding a new shape: square
+    
+class Square(Shape):
+    def __init__(self, side):
+        super().__init__("square")
+        self.side = side
+    
+    def calculate_area(self):
+        return self.side ** 2
+
+
 # Using the Shape class that violates the OCP
     
+
+rectangle = Rectangle(width=10,  height=5)
+print(rectangle.calculate_area())
+print(rectangle.calculate_area)
+print(Shape)
+
 circle = Circle(radius=5)
 print(circle.calculate_area())
 print(circle.calculate_area)
+print(Shape)
+
+square = Square(side=5)
+print(square.calculate_area())
+print(square.calculate_area)
 print(Shape)
