@@ -12,6 +12,8 @@ class Shape:
     def __init__(self, shape_type, **kwargs):
         self.shape_type = shape_type
         if self.shape_type == "rectangle":
+            print(kwargs)
+            print(type(kwargs))
             self.width = kwargs["width"]
             self.height = kwargs["height"]
         elif self.shape_type == "circle":
@@ -35,3 +37,21 @@ class Shape:
 # to fix your class to make it open for extension but closed for 
 # modification:
 
+from abc import ABC, abstractmethod
+from math import pi
+
+class Shape(ABC):
+    def __init__(self, shape_type):
+        self.shape_type = shape_type
+    
+    @abstractmethod
+    def calculate_area(self):
+        pass
+    
+class Circle(Shape):
+    def __init__(self, radius):
+        super.__init__("circle")
+        self.radius =radius
+
+    def calculate_area(self):
+        return pi * self.radius ** 2
