@@ -111,3 +111,15 @@ class Shape:
         elif self.shape_type == "circle":
             return pi * self.radius ** 2
 
+
+# The Shape class above violates the OPC because if you need to add
+# a new shape, for example, square, you must modify the internal
+# code of the class. For example, you need to add another elif 
+# clause to  .__init__() and to .calcualte_area() so that you can
+# address the requirements of a square shape.  
+
+# Having to make these changes to create new shapes measn that your
+# your class is open for modification. Here is a possible solution 
+# to fix your class to make it open for extension but closed for 
+# modification:
+        
