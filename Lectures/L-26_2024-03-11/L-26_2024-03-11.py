@@ -87,3 +87,15 @@ class ZipFileManager:
 # Need to understand using ZipFIle later
 
 # 2. The Open-Closed Principle (OCP)
+
+# The OCP is explained in the file: shapes_ocp.py
+            
+# Example of using Shape class that violates the OCP.
+            
+from shapes_ocp import Shape
+
+rectangle = Shape("rectangle", width=10, height=5)
+print(rectangle.calculate_area())
+
+circle = Shape("circle", radius=5)
+print(circle.calculate_area())
