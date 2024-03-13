@@ -98,6 +98,7 @@ print("------------2. The Open-Closed Principle (OCP)-----------")
 
 from math import pi
 
+
 class Shape:
     def __init__(self, shape_type, **kwargs):
         self.shape_type = shape_type
@@ -136,6 +137,7 @@ print(circle.calculate_area())
 from abc import ABC, abstractmethod
 from math import pi
 
+
 class Shape(ABC):
     def __init__(self, shape_type):
         self.shape_type = shape_type
@@ -143,7 +145,18 @@ class Shape(ABC):
     @abstractmethod
     def calculate_area(self):
         pass
-    
+
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        super().__init__("rectangle")
+        self.width = width
+        self.height = height
+
+    def calculate_area(self):
+        return self.width * self.height
+
+
 class Circle(Shape):
     def __init__(self, radius):
         super().__init__("circle")
