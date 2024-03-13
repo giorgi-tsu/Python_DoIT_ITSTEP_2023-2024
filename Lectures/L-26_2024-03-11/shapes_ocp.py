@@ -34,4 +34,4 @@ class Shape:
 # your class is open for modification. Here is a possible solution 
 # to fix your class to make it open for extension but closed for 
 # modification:
-        
+
