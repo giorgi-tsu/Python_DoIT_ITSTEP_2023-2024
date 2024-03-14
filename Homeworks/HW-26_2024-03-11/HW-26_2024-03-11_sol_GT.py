@@ -43,7 +43,21 @@ class User:
         return self.name
 
 
+class Storage:
 
+    def save(self):
+        ...
+
+
+class HttpConnection:
+
+    def send(self):
+        ...
+
+class Logger:
+
+    def log(self):
+        ...
 
 #------------------------------------------------------------------#
 
@@ -52,8 +66,38 @@ print("\n",
 
 ## სავარჯიშო 2
 
+# მოცემული გვაქვს Discount კლასი.
+# Open-Closed პრინციპის გამოყენებით საჭიროა სწორად დავნერგოთ 
+# 40%_იანი ფასდაკლების ფუნქციონალი VIP კლიენტებისთვის.
 
+class Discount:
+  def __init__(self, customer, price):
+      self.customer = customer
+      self.price = price
 
+  def give_discount(self):
+      if self.customer == 'favourite':
+          return self.price * 0.2
+      if self.customer == 'vip':
+          return self.price * 0.4
+
+from abc import ABC, abstractclassmethod
+
+class Discount(ABC):
+    def __init__(self, price):
+        self.price = price
+
+    @abstractclassmethod
+    def give_discount(self):
+        pass
+
+class VIP(Discount):
+    def __init__(self, price):
+        super().__init__(price)
+        self.customer = "VIP"
+    
+    def give_discount(self):
+        return self.price * 0.4
 
 #------------------------------------------------------------------#
 
