@@ -81,6 +81,8 @@ class Discount:
       if self.customer == 'vip':
           return self.price * 0.4
 
+# OCP გამოყენება
+
 from abc import ABC, abstractclassmethod
 
 class Discount(ABC):
@@ -91,32 +93,34 @@ class Discount(ABC):
     def give_discount(self):
         pass
 
-class VIP(Discount):
+
+class Favourite(Discount):
     def __init__(self, price):
         super().__init__(price)
-        self.customer = "VIP"
+        self.customer = "favourite"
+
+    def give_discount(self):
+        return self.price * 0.2
+
+
+class Vip(Discount):
+    def __init__(self, price):
+        super().__init__(price)
+        self.customer = "vip"
     
     def give_discount(self):
         return self.price * 0.4
-
-#------------------------------------------------------------------#
-
-print("\n",
-      "-------------------- სავარჯიშო 3 --------------------", "\n")
-
-## სავარჯიშო 3
-
+    
+# Discount გამოყენება
+    
+vip_discount = Vip(price=10)
+print(vip_discount.price)
+print(vip_discount.give_discount())
 
 
-
-#------------------------------------------------------------------#
-
-print("\n",
-      "-------------------- სავარჯიშო 3 --------------------", "\n")
-
-## სავარჯიშო 4
-
-
+favourite_discount = Favourite(price=10)
+print(favourite_discount.price)
+print(favourite_discount.give_discount())
 
 
 #------------------------------------------------------------------#
