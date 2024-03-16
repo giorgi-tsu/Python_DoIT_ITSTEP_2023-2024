@@ -31,3 +31,19 @@
 # name of the file that you are testing. In this case it is 
 # "test_calc.py" since we are testing "calc.py"
 
+# 2. import unittest module
+
+  # import unittest
+
+# 3. import the module you want to test
+
+  # import file.py
+
+# 4. Create test cases
+
+  # We need to create some test cases for the functions
+# that we want to test. To create those test cases we first need
+# to create a test class that inherits from "unittest.TestCase".
+# It is recommended to give a descriptive name to this like. 
+# For example, class TestCalc(unittest.TestCase)...
+
