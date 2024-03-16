@@ -23,4 +23,11 @@
 # In this tutorial will cover the built-in unittesting module:
 # unittest
 
+# Steps for unit testing:
+
+# 1. Create a test module
+
+  # Create a new file and call it "test_file.py", where file is the
+# name of the file that you are testing. In this case it is 
+# "test_calc.py" since we are testing "calc.py"
 
