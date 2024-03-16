@@ -47,3 +47,16 @@
 # It is recommended to give a descriptive name to this like. 
 # For example, class TestCalc(unittest.TestCase)...
 
+# 5. Start writing methods for tests
+
+  # It is required that each test method starts with "test_".
+# For example, "test_add" to test "add" function. This is required
+# because when we ran the class it actually knows which methods
+# represent tests. So, if the method does not start with the "test_"
+# then it won't be run.
+
+# Here is the link for the description of all the asserts
+# inherited from the unittest.TestCase:
+
+# https://docs.python.org/3/library/unittest.html#unittest.TestCase.debug 
+
