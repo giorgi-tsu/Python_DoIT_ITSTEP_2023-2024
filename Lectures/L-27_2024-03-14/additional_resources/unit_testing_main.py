@@ -60,3 +60,11 @@
 
 # https://docs.python.org/3/library/unittest.html#unittest.TestCase.debug 
 
+# I have done the tutorial until testing methods involving requests
+# that require using testing tool called "mocking" and this is 
+# until timestamp:  00:28:34. After this, he discusses mocking until
+# timestamp: 00:36:46.
+
+# Then he continues talking about best prctices in testing:
+
+# 1.
