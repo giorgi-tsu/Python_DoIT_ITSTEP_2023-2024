@@ -5,7 +5,7 @@ import calc  # importing calc is easy since it's in the
  
 class TestCalc(unittest.TestCase):
  
-    def add_test(self):
+    def test_add(self):
         result = calc.add(10, 5)
         self.assertEqual(result, 14)
 
