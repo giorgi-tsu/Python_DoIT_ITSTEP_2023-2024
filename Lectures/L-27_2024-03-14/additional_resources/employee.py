@@ -8,15 +8,17 @@ class Employee:
         self.last = last
         self.pay = pay
 
+
     @property
     def email(self):
         return f"{self.first}.{self.last}@email.com"
 
+
     @property
     def fullname(self):
         return f"{self.first} {self.last}"
-    
-    @property
+
+
     def apply_raise(self):
         self.pay = int(self.pay * self.raise_amt)
 
