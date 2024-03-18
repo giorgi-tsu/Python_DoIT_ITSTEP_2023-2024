@@ -1,2 +1,7 @@
 def func():
-  print("Test")
+  print("Test",end="")
+  print("\ntest2")
+  print("test3")
+
+
+func()

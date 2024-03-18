@@ -4,14 +4,24 @@ from employee import Employee
 
 class TestEmployee(unittest.TestCase):
 
+    @classmethod
+    def setUpClass(cls):
+        print("setUpClass")
+
+
+    @classmethod
+    def tearDownClass(cls):
+        print("tearDownClass")
+
+
     def setUp(self):
-        print('\nsetUp')
+        print('setUp')
         self.emp_1 = Employee('Corey', 'Schafer', 50000)
         self.emp_2 = Employee('Sue', 'Smith', 60000)
 
 
     def tearDown(self):
-        print('tearDown\n')
+        print('tearDown')
 
 
     def test_email(self):
