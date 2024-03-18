@@ -6,8 +6,9 @@ import calc  # importing calc is easy since it's in the
 class TestCalc(unittest.TestCase):
  
     def test_add(self):
-        result = calc.add(10, 5)
-        self.assertEqual(result, 15)
+        self.assertEqual(calc.add(10, 5), 15)
+        self.assertEqual(calc.add(-1, 1), 0)
+        self.assertEqual(calc.add(-1, -1), -2)
 
 
 if __name__ == "__main__":
