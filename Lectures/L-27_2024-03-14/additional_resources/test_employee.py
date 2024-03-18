@@ -4,6 +4,14 @@ from employee import Employee
 
 class TestEmployee(unittest.TestCase):
 
+    def setUp(self):
+        pass
+    
+    
+    def tearDown(self):
+        pass
+    
+    
     def test_email(self):
         emp_1 = Employee("Corey", "Schafer", 50000)
         emp_2 = Employee("Sue", "Smith", 60000)
