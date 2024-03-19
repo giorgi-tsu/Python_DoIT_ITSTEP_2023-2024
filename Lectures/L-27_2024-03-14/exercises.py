@@ -1,23 +1,23 @@
 import unittest
 
-def equal_lists(list1, list2):
-    return list1 == list2
+# def equal_lists(list1, list2):
+#     return list1 == list2
 
 
-class TestListsEquality(unittest.TestCase):
-    def test_equal_lists(self):
-        list1 = [2, 4, 7]
-        list2 = [2, 4, 7]
+# class TestListsEquality(unittest.TestCase):
+#     def test_equal_lists(self):
+#         list1 = [2, 4, 7]
+#         list2 = [2, 4, 7]
 
-        self.assertTrue(equal_lists(list1, list2),
-                        "The lists are different")
+#         self.assertTrue(equal_lists(list1, list2),
+#                         "The lists are different")
 
 
-        list1 = [2, 4, 7]
-        list2 = [2, 4, 8]
+#         list1 = [2, 4, 7]
+#         list2 = [2, 4, 8]
 
-        self.assertFalse(equal_lists(list1, list2),
-                         "The lists are equal")
+#         self.assertFalse(equal_lists(list1, list2),
+#                          "The lists are equal")
 
 
 # def is_palindrome(word):
