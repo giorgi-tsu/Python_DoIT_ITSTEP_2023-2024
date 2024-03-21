@@ -15,4 +15,13 @@
 # Part 1: Understanding threading using some simple sleep methods
 #  (timestamp: 00-01-40)
 
+import time
+
+start = time.perf_counter()
+
+
+
+
+finish = time.perf_counter()
+
 
