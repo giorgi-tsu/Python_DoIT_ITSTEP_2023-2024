@@ -125,3 +125,5 @@ for thread in threads:
 finish = time.perf_counter()
 
 print(f"finished in {round(finish-start, 2)} seconds(s)") 
+
+# Passing arguments into our functions (timestamp: 00-12-45)
