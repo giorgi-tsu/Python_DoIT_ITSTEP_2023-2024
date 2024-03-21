@@ -12,7 +12,11 @@
 # concurrently. Speed-ups aren't really guaranteed, so it really 
 # just depends on what you are doing. 
 
+
+
 #####################################################################
+#####################################################################
+
 
 # Part 1: Understanding threading using some simple sleep methods
 #  (timestamp: 00-01-40)
@@ -70,6 +74,33 @@
 # Now let's see how to use threading with the code above
 
 
+# import threading
+# import time
+
+# start = time.perf_counter()
+
+# def  do_something():
+#     print("Sleeping 1 second...")
+#     time.sleep(1)
+#     print("Done sleeping...")
+
+
+# t1 = threading.Thread(target=do_something)
+# t2 = threading.Thread(target=do_something)
+
+# t1.start()
+# t2.start()
+
+# t1.join()
+# t2.join()
+
+# finish = time.perf_counter()
+
+# print(f"finished in {round(finish-start, 2)} seconds(s)") 
+
+
+# Now let's create 10 threads (timestamp: 00-09-55)
+
 import threading
 import time
 
@@ -80,16 +111,15 @@ def  do_something():
     time.sleep(1)
     print("Done sleeping...")
 
+threads = [] 
 
-t1 = threading.Thread(target=do_something)
-t2 = threading.Thread(target=do_something)
+for _ in range(10):
+    t = threading.Thread(target=do_something)
+    t.start()
+    threads.append(t)
 
-t1.start()
-t2.start()
-
-t1.join()
-t2.join()
-
+for thread in threads:
+    thread.join()
 
 
 finish = time.perf_counter()
