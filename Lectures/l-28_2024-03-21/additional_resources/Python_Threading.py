@@ -131,27 +131,48 @@ print("\n",
       "(timestamp: 00-12-45)",
       "\n")
 
-import threading
-import time
+# import threading
+# import time
 
-start = time.perf_counter()
+# start = time.perf_counter()
 
-def  do_something(seconds):
-    print(f"Sleeping {seconds} second(s)...")
-    time.sleep(seconds)
-    print("Done sleeping...")
+# def  do_something(seconds):
+#     print(f"Sleeping {seconds} second(s)...")
+#     time.sleep(seconds)
+#     print("Done sleeping...")
 
-threads = [] 
+# threads = [] 
 
-for _ in range(10):
-    t = threading.Thread(target=do_something, args=[1.5])
-    t.start()
-    threads.append(t)
+# for _ in range(10):
+#     t = threading.Thread(target=do_something, args=[1.5])
+#     t.start()
+#     threads.append(t)
 
-for thread in threads:
-    thread.join()
+# for thread in threads:
+#     thread.join()
 
 
-finish = time.perf_counter()
+# finish = time.perf_counter()
 
-print(f"finished in {round(finish-start, 2)} seconds(s)") 
+# print(f"finished in {round(finish-start, 2)} seconds(s)") 
+
+print("\n",
+      "Part x: Learning thread pool executor",
+      "(timestamp: 00-14-30)",
+      "\n")
+
+# What we saw above, until now is the older way of doing threads.
+# In this case we created threads manually. 
+
+# Now we will do threading using the thread pool executor that has 
+# been added to Python 3.2
+
+# In a lot of cases this is an easier and more efficient way of 
+# threading. 
+
+# It also allows us to easily switch over to using multiple 
+# proccesses instead of threads depending on the problem that we are
+# trying to solve
+
+# Let's now using the thread pool executor
+
