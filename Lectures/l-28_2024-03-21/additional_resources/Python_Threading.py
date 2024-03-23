@@ -1,9 +1,9 @@
 # Python Threading Tutorial: Run Code Concurrently Using the 
-# Threading Module
+# threading Module
 
 # Learning Objectives:
 
-# - Learning how to run code concurrently using the Threading module
+# - Learning how to run code concurrently using the threading module
 
 # 1. Why would we want to use threading? 
 
@@ -101,20 +101,50 @@
 
 # Now let's create 10 threads (timestamp: 00-09-55)
 
+# import threading
+# import time
+
+# start = time.perf_counter()
+
+# def  do_something():
+#     print("Sleeping 1 second...")
+#     time.sleep(1)
+#     print("Done sleeping...")
+
+# threads = [] 
+
+# for _ in range(10):
+#     t = threading.Thread(target=do_something)
+#     t.start()
+#     threads.append(t)
+
+# for thread in threads:
+#     thread.join()
+
+
+# finish = time.perf_counter()
+
+# print(f"finished in {round(finish-start, 2)} seconds(s)") 
+
+print("\n",
+      "Part x: Passing arguments into functions",
+      "(timestamp: 00-12-45)",
+      "\n")
+
 import threading
 import time
 
 start = time.perf_counter()
 
-def  do_something():
-    print("Sleeping 1 second...")
-    time.sleep(1)
+def  do_something(seconds):
+    print(f"Sleeping {seconds} second(s)...")
+    time.sleep(seconds)
     print("Done sleeping...")
 
 threads = [] 
 
 for _ in range(10):
-    t = threading.Thread(target=do_something)
+    t = threading.Thread(target=do_something, args=[1.5])
     t.start()
     threads.append(t)
 
@@ -125,5 +155,3 @@ for thread in threads:
 finish = time.perf_counter()
 
 print(f"finished in {round(finish-start, 2)} seconds(s)") 
-
-# Passing arguments into our functions (timestamp: 00-12-45)
