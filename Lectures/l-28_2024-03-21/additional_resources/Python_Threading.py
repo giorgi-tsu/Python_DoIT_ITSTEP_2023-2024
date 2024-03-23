@@ -172,7 +172,34 @@ print("\n",
 
 # It also allows us to easily switch over to using multiple 
 # proccesses instead of threads depending on the problem that we are
-# trying to solve
+# trying to solve.
 
 # Let's now using the thread pool executor
 
+import concurrent.futures
+import time
+
+
+start = time.perf_counter()
+
+def  do_something(seconds):
+    print(f"Sleeping {seconds} second(s)...")
+    time.sleep(seconds)
+    return "Done sleeping..."
+
+
+# It's best to use the thread pool executor with a context manager
+
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    f1 = executor.submit(do_something, 1) # submit method schedules
+    # a function to be executed and returns a futures object. The
+    # futures object encapsulates the execution of our function and 
+    # allows us to check in on it after it's been scheduled. 
+    # So, we can check that it's running or if it's done and also
+    # check the result. So, if we grab the result then it will give
+    # us the return value of the function.
+    print(f1.result())
+
+finish = time.perf_counter()
+
+print(f"finished in {round(finish-start, 2)} seconds(s)") 
