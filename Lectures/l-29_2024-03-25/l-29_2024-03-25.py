@@ -34,6 +34,17 @@ image_urls = [
 def donwload_img(url):
     img_data = requests.get(url).content
     name = url.split("/")[-1]
-    print(name)
+    full_name = f"{name}.jpg"
 
-donwload_img()
+    with open(full_name, "wb") as img_file:
+        img_file.write(img_data)
+        print(f"{full_name} Download Complete!")
+
+# donwload_img(image_urls[-1])
+
+if __name__ == "__main__":
+    start = time.time()
+    for url in image_urls:
+        donwload_img(url)
+    end = time.time()
+    f"Donwload completed in {end-start} seconds"
