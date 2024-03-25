@@ -32,5 +32,8 @@ image_urls = [
 ]
 
 def donwload_img(url):
-    requests.get(url).content
+    img_data = requests.get(url).content
+    name = url.split("/")[-1]
+    print(name)
 
+donwload_img()
