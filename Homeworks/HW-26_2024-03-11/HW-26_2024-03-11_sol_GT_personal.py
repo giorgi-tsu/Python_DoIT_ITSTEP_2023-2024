@@ -14,7 +14,8 @@ print("\n",
 
 # მოცემულ კლასს მოარგე Single Responsibility პრინციპი და 
 # შესაბამისად შეცვალე კოდი. კერძოდ, დაშალე 4 კლასად:
-#  User,  Storage,  HttpConnection,  Logger
+# User,  Storage,  HttpConnection,  Logger
+
 
 class  User:
     def __init__(self, name):
@@ -54,10 +55,12 @@ class HttpConnection:
     def send(self):
         ...
 
+
 class Logger:
 
     def log(self):
         ...
+
 
 #------------------------------------------------------------------#
 
@@ -70,6 +73,7 @@ print("\n",
 # Open-Closed პრინციპის გამოყენებით საჭიროა სწორად დავნერგოთ 
 # 40%_იანი ფასდაკლების ფუნქციონალი VIP კლიენტებისთვის.
 
+
 class Discount:
   def __init__(self, customer, price):
       self.customer = customer
@@ -80,6 +84,7 @@ class Discount:
           return self.price * 0.2
       if self.customer == 'vip':
           return self.price * 0.4
+
 
 # OCP გამოყენება
 
@@ -110,6 +115,7 @@ class Vip(Discount):
     
     def give_discount(self):
         return self.price * 0.4
+
     
 # Discount გამოყენება
     
