@@ -46,3 +46,4 @@ def broadcast():
     while True:
         while not messages.empty():
             message, addr = messages.get()
+            print(message.decode())
