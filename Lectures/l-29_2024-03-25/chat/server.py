@@ -9,7 +9,7 @@ port = 55555
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-server.bind(host, port)
+server.bind((host, port))
 
 server.listen() # ამით სერვერი აიწყებს მოცემულ IP და
                 # Port-ზე მიყურადებას
