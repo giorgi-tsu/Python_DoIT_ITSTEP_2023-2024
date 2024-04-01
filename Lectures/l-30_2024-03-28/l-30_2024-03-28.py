@@ -43,24 +43,44 @@
 
 # საჭირო ბიბლიოთეკების შემოტანა
 
+# import asyncio
+
+# #coroutine
+
+# async def some(number):
+#     print("Running: ", number)
+#     await asyncio.sleep(1)
+#     print("Finished: ", number)
+
+
+# async def main():
+#     print("Started!")
+#     list_of_tasks = []
+#     for i in range(1000):
+#         list_of_tasks.append(some(i))
+
+#     await asyncio.sleep(2)
+#     await asyncio.gather(*list_of_tasks)
+
+
+# asyncio.run(main())
+
+
+# საჭირო ბიბლიოთეკების შემოტანა
+
 import asyncio
 
 #coroutine
 
-async def some(number):
-    print("Running: ", number)
-    await asyncio.sleep(1)
-    print("Finished: ", number)
-
-
 async def main():
-    print("Started!")
-    list_of_tasks = []
-    for i in range(1000):
-        list_of_tasks.append(some(i))
+    print("Hello")
+    await second("LLLLLLL") # await უზრუნველჰყოფს იმას, რომ 
+    # სანამ არ დასრუდლება second თასქი, მანამ არ გადავა დაბლა
+    print("World")
 
-    await asyncio.sleep(2)
-    await asyncio.gather(*list_of_tasks)
+async def second(text):
+    print(text)
+    await asyncio.sleep(2) # იგივეს აკეთებს აქ რასაც ზემოთ
 
 
 asyncio.run(main())
