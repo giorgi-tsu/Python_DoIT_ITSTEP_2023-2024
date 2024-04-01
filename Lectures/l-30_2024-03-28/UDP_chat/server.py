@@ -33,8 +33,6 @@ def receive():
             message, addr = server.recvfrom(1024)
             # ვინახავთ შეტყობინებას "ბაზაში"
             messages.put((message, addr))
-
-        
         except:
             pass
 
