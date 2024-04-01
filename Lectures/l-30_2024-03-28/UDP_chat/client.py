@@ -27,7 +27,10 @@ def receieve():
 t1 = threading.Thread(target=receieve)
 t1.start()
 
-with True:
+client.sendto(f"SIGNUP_TAG:{nickname}".encode(), (host, server_port))
+
+
+while True:
     message = input("")
     if message.lower() == "quit":
         exit()
