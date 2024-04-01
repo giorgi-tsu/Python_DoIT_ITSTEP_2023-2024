@@ -39,13 +39,13 @@ def handle(client):
 
 
 def receive():
-    while True:
+    while True:  
         client, address = server.accept()
         print(f"Connected with {address}")
 
         client.send("NICK".encode("ascii"))
         nickname = client.recv(1024).decode("ascii")
-        nicknames.apapend(nickname)
+        nicknames.append(nickname)
         clients.append(client)
 
         print(f"Nickname is {nickname}")
@@ -55,5 +55,6 @@ def receive():
         thread = threading.Thread(target=handle, args=(client, ))
         thread.start()
 
-      
+
+receive()      
 
