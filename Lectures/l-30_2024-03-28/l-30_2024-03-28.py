@@ -30,11 +30,13 @@ import asyncio
 
 async def main():
     print("Hello")
-    await second("LLLLLLL")
+    await second("LLLLLLL") # await უზრუნველჰყოფს იმას, რომ 
+    # სანამ არ დასრუდლება second თასქი, მანამ არ გადავა დაბლა
     print("World")
 
 async def second(text):
     print(text)
+    await asyncio.sleep(2) # იგივეს აკეთებს აქ რასაც ზემოთ
 
 
 asyncio.run(main())
