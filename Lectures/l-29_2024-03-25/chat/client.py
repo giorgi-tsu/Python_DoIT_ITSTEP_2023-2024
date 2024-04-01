@@ -31,6 +31,6 @@ def write():
 
 recieve_thread = threading.Thread(target=receive)
 recieve_thread.start() 
-wriite_thread = threading.Thread(target=write)
-wriite_thread.start()
+write_thread = threading.Thread(target=write)
+write_thread.start()
 
