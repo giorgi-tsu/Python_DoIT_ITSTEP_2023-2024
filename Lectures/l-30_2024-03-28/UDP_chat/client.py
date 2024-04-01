@@ -16,4 +16,9 @@ client.bind((host, client_port))
 nickname = input("Nickname: ")
 
 def receieve():
-    
+    while True:
+        try:
+            message, _ = client.recvfrom(1024) 
+            print(message.decode())
+        except:
+            
