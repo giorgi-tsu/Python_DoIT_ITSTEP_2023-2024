@@ -24,19 +24,35 @@
 
 # საჭირო ბიბლიოთეკების შემოტანა
 
+# import asyncio
+
+# #coroutine
+
+# async def main():
+#     print("Hello")
+#     await second("LLLLLLL") # await უზრუნველჰყოფს იმას, რომ 
+#     # სანამ არ დასრუდლება second თასქი, მანამ არ გადავა დაბლა
+#     print("World")
+
+# async def second(text):
+#     print(text)
+#     await asyncio.sleep(2) # იგივეს აკეთებს აქ რასაც ზემოთ
+
+
+# asyncio.run(main())
+
+# საჭირო ბიბლიოთეკების შემოტანა
+
 import asyncio
 
 #coroutine
 
+async def some():
+    return "Hi" 
+
 async def main():
-    print("Hello")
-    await second("LLLLLLL") # await უზრუნველჰყოფს იმას, რომ 
-    # სანამ არ დასრუდლება second თასქი, მანამ არ გადავა დაბლა
-    print("World")
+    data = await some()
 
-async def second(text):
-    print(text)
-    await asyncio.sleep(2) # იგივეს აკეთებს აქ რასაც ზემოთ
-
+    print(data)
 
 asyncio.run(main())
