@@ -4,11 +4,15 @@ import threading
 host = "127.0.0.1"
 port = 55555
 
+# AF_INET ნიშნავს, რომ ვიყენებთ IPv4 ოჯახს. 
+# SOCK_STREAM ნიშნავს, რომ ეს არის TCP პროტოკოლი
+
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 server.bind(host, port)
 
-server.listen()
+server.listen() # ამით სერვერი აიწყებს მოცემულ IP და
+                # Port-ზე მიყურადებას
 
 clients = []
 nicknames = []
