@@ -47,12 +47,20 @@ import asyncio
 
 #coroutine
 
-async def some():
-    return "Hi" 
+async def some(number):
+    print("Running: ", number)
+    await asyncio.sleep(1)
+    print("Finished: ", number)
+
 
 async def main():
-    data = await some()
+    print("Started!")
+    list_of_tasks = []
+    for i in range(1000):
+        list_of_tasks.append(some(i))
 
-    print(data)
+    await asyncio.sleep(2)
+    await asyncio.gather(*list_of_tasks)
+
 
 asyncio.run(main())
