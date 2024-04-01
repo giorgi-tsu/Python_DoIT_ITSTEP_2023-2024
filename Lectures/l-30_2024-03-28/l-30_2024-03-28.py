@@ -19,10 +19,22 @@
 # მეორე ნაწილი (L30_2024-03-28_01-13-06)
 
 
+#  2. მრავალგანშშტოებიანი და ასინქრონული ექო სერვერის რეალიზაცია
+
+
 # საჭირო ბიბლიოთეკების შემოტანა
 
 import asyncio
 
+#coroutine
 
-#  2. მრავალგანშშტოებიანი და ასინქრონული ექო სერვერის რეალიზაცია
+async def main():
+    print("Hello")
+    await second("LLLLLLL")
+    print("World")
 
+async def second(text):
+    print(text)
+
+
+asyncio.run(main())
