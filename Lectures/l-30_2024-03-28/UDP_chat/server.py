@@ -55,3 +55,24 @@ def broadcast():
             # კლიენტების სიაში
             if addr not in clients:
                 clients.append(addr)
+
+            for client in clients:
+                try:
+                    # ამოვიღებთ ნიკს და გავაგზავნით შეტყობინებას 
+                    # ყველა კლიენტთან
+                    #SIGNUP_TAG:Elene
+                    if message.decode().split(":")[0] == "SIGNUP_TAG":
+                        name = message.decode()[11:]
+                        server.sendto(f"{name} Joined!".encode(), client)
+                    else:
+                        server.sendto(message, client)
+                except:
+                    clients.remove(client)
+
+# ვქმნით სერვერის ფუნქციების ძაფებს
+t1 = threading.Thread(target=receive)
+t2 = threading.Thread(target=broadcast)
+
+# ვუშვებთ სერვერის ფუნქციების ძაფებს
+t1.start()
+t2.start()
