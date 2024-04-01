@@ -44,6 +44,14 @@ def receive():
         
 def broadcast():
     while True:
+        # სანამ შეტყობინებების "ბაზაში" რაიმე იქნება ეს ციკლი სულ
+        # იმუშავებს
         while not messages.empty():
+            # შეტყობინებების ბაზიდან ვიღებთ შეტყობინებას და 
+            # გამომგზავნის მისამართს
             message, addr = messages.get()
             print(message.decode())
+            # თუ ახალი კლიენტი შემოუერთდა ჩათს დაემატება 
+            # კლიენტების სიაში
+            if addr not in clients:
+                clients.append(addr)
