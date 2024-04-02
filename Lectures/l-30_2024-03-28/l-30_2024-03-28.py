@@ -88,18 +88,48 @@
 
 # საჭირო ბიბლიოთეკების შემოტანა
 
+# import asyncio
+
+# #coroutine
+
+# async def main():
+#     print("Hello")
+#     task = asyncio.create_task(second("..."))
+#     print("World")
+
+# async def second(text):
+#     print(text)
+#     await asyncio.sleep(2)
+
+
+# asyncio.run(main())
+
+
+
+# საჭირო ბიბლიოთეკების შემოტანა
+
 import asyncio
 
 #coroutine
 
-async def main():
-    print("Hello")
-    task = asyncio.create_task(second("..."))
-    print("World")
+async def some1():
+    print("Start 1")
+    await asyncio.sleep(2)
+    print("Done 1")
+    return {"Some1": 1}
 
-async def second(text):
-    print(text)
-    await asyncio.sleep(2) # იგივეს აკეთებს აქ რასაც ზემოთ
+async def some2():
+    for i in range(15):
+        print(i)
+        await asyncio.sleep(1)
+
+
+async def main():
+    task1 = asyncio.create_task(some1())
+    task2 = asyncio.create_task(some2())
+    value = await task1
+    print(value)
+    await task2
 
 
 asyncio.run(main())
