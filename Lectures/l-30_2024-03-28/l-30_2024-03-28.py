@@ -68,14 +68,33 @@
 
 # საჭირო ბიბლიოთეკების შემოტანა
 
+# import asyncio
+
+# #coroutine
+
+# async def main():
+#     print("Hello")
+#     await second("...") # await უზრუნველჰყოფს იმას, რომ 
+#     # სანამ არ დასრუდლება second თასქი, მანამ არ გადავა დაბლა
+#     print("World")
+
+# async def second(text):
+#     print(text)
+#     await asyncio.sleep(2) # იგივეს აკეთებს აქ რასაც ზემოთ
+
+
+# asyncio.run(main())
+
+
+# საჭირო ბიბლიოთეკების შემოტანა
+
 import asyncio
 
 #coroutine
 
 async def main():
     print("Hello")
-    await second("...") # await უზრუნველჰყოფს იმას, რომ 
-    # სანამ არ დასრუდლება second თასქი, მანამ არ გადავა დაბლა
+    task = asyncio.create_task(second("..."))
     print("World")
 
 async def second(text):
@@ -84,5 +103,3 @@ async def second(text):
 
 
 asyncio.run(main())
-
-# "L30_2024-03-28_01-34-15"
