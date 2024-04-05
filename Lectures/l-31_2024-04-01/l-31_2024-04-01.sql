@@ -8,4 +8,17 @@ create table persons (
     city  varchar(45),
     primary key (personID)
     );
-persons
+    
+
+select * from test2.persons;
+
+insert into	persons (lastname, firstname, city)
+values 
+("Khoshtaria", "Davit", "Zugdidi"),
+("Mikhelidze", "Mariam", "Kutaisi");
+
+delete from persons where firstname="Nika";
+
+update persons 
+set city = "poti", lastname = "Tutashkhia"
+where personID=2
