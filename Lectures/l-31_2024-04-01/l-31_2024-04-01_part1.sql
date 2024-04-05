@@ -21,4 +21,6 @@ delete from persons where firstname="Nika";
 
 update persons 
 set city = "poti", lastname = "Tutashkhia"
-where personID=2
+where personID=2;
+
+use it_step
