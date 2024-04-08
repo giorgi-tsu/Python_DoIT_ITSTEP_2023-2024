@@ -10,13 +10,11 @@ select * from customers where city = "NYC";
 	
 select * from customers where city != "NYC";
 
-select customerName, creditLimit from customers where creditLimit < ;
+select customerName, creditLimit from customers where creditLimit > 23000;
 
+select customerName, creditLimit from customers where creditLimit < 23000 ;
 
-/* select * from customers; */
-
-select customerName, city from customers;
-
+select customerName, creditLimit from customers where creditLimit <> 23000 ;
 
 
 
