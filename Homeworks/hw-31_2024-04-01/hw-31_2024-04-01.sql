@@ -56,4 +56,11 @@ values
 ("Imereti", "Georgia"),
 ("Samegrelo", "Georgia");
 
-select * from table_2
+select * from table_2;
+
+drop table table_1;
+
+drop table table_2;
+
+drop schema hw_31;
+
