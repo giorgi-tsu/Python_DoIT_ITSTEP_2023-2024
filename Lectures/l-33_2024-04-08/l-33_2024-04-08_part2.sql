@@ -1,7 +1,9 @@
 use it_step;
 
-select city, phone, CustomerName  from customers group by city;
-select city,  phone, sum(creditLimit) from customers group by city, phone order by city;
+select city, customerName, sum(creditLimit)  from customers group by city;
+select city, sum(creditLimit) from customers group by city order by city;
+select city,  customerName sum(creditLimit) from customers group by city,  order by city;
+select city,  customerName, sum(creditLimit) from customers group by city, phone order by city;
 
 select * from customers order by city;
 
