@@ -1,8 +1,8 @@
 use it_step;
 
-select city, customerName, sum(creditLimit)  from customers group by city;
+select city, phone from customers group by city order by city;
 select city, sum(creditLimit) from customers group by city order by city;
-select city,  customerName sum(creditLimit) from customers group by city,  order by city;
+select city,  customerName, sum(creditLimit) from customers group by city,  order by city;
 select city,  customerName, sum(creditLimit) from customers group by city, phone order by city;
 
 select * from customers order by city;
@@ -11,6 +11,8 @@ SELECT city, sum(creditLimit) FROM it_step.customers group by city order by city
 SELECT city, count(*) FROM it_step.customers group by city order by city;
 
 SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ""));
+
+select @@sql_mode;
 
 
 

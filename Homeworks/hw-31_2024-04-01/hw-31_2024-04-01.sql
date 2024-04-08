@@ -63,4 +63,3 @@ drop table table_1;
 drop table table_2;
 
 drop schema hw_31;
-
