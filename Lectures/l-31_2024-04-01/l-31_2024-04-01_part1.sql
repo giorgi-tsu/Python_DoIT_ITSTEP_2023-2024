@@ -1,5 +1,7 @@
 create schema test2;
 
+select database(); -- აბრუნებს ბაზის სახელს, რომელთანაც დაკავშირებული ვართ. 
+
 use test2;
 
 drop table persons;
