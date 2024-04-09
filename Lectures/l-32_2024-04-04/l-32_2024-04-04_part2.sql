@@ -18,15 +18,30 @@ create table students
     age int
 );
 
+select * from students;
+
 insert into students 
 (firstName, class, age)
 values
 ("Nika", "first", 26),
 ("Mriami", "second", 22),
-("George", "third", 32)
-;
+("George", "third", 32);
+
+select * from students;
 
 create table addresses
 (
-	addressID int not null unique primary key auto_increment, 
+	addressID int not null unique primary key auto_increment,
+    address varchar(100) not null,
+    studentID int not null unique,
+    foreign key (studentID) references students(studentID)
 );
+ 
+select * from addresses;
+
+insert into addresses 
+(address, studentID)
+values
+("Tbilisi", 1),
+("Kutaisi", 22),
+("Batumi", 32);
