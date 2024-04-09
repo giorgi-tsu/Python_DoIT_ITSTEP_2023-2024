@@ -2,9 +2,11 @@
 
 /* ლექცია 32-ზე დაწერილი კოდი */
 
-/* ნაწილი 1 */
+/* ნაწილი 2 */
 
 /* Relationships */
+
+/* One to one relationship (1-1) */
 
 create schema school;
 
