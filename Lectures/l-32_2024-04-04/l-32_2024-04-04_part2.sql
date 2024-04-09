@@ -66,3 +66,5 @@ select * from addresses;
 delete from students where studentID = 1;
 
 select * from students; -- როგორც ვხედავთ წაიშალა ზემოთ თქმულიდან გამომინარე.
+
+-- timestamp: l-32_2024-04-04_01-02-03 "10 minutes break"  
