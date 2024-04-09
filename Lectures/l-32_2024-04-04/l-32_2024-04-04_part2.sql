@@ -17,3 +17,11 @@ create table students
     class varchar(40),
     age int
 );
+
+insert into students 
+(firstName, class, age)
+values
+("Nika", "first", 26),
+("Mriami", "second", 22),
+("George", "third", 32)
+;
