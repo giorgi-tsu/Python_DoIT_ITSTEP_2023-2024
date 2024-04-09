@@ -43,5 +43,14 @@ insert into addresses
 (address, studentID)
 values
 ("Tbilisi", 1),
-("Kutaisi", 22),
-("Batumi", 32);
+("Kutaisi", 3),
+("Batumi", 2);
+
+select * from addresses;
+
+delete from students where studentID = 1; -- ამ შემთხვევაში არ წაშლის, ვინაიდან students(studentID) ველი არის addresses(studentID) ველის მშობელი (parent).
+-- ეს მოხდა ვინაიდან addresses ცხრილში, ჩვენ მივუთითეთ, რომ ამ ცხრილის studentID არის foreign key და მისი references არის studentID students ცხრილიდან
+-- (foreign key (studentID) references students(studentID)). Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails
+-- (`school`.`addresses`, CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`studentID`) REFERENCES `students` (`studentID`))
+
+
