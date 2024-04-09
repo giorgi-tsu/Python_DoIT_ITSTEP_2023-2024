@@ -48,7 +48,8 @@ select * from customers where customerName like "%e"; -- მონიშნა�
 
 select * from customers where customerName like "e%"; -- მონიშნავს ყველა კლინეტს, სადაც customerName იწყება e-ზე.
 
-select * from custmers where customerName like "e%s"-- მონიშნავს ყველა კლინეტს, სადაც customerName იწყება e-ზე და მთავრდება ს-ზე.
+select * from customers where customerName like "e%s"; -- მონიშნავს ყველა კლინეტს, სადაც customerName იწყება e-ზე და მთავრდება ს-ზე.
 
+select * from customers where customerName like "%gift%"  --მონიშნავს ყველა კლინეტს, სადაც customerName შეიცავს სიტყვა gift-ს.
 
 
