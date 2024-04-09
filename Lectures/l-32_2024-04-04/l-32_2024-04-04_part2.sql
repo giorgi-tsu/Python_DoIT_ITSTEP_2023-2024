@@ -25,3 +25,8 @@ values
 ("Mriami", "second", 22),
 ("George", "third", 32)
 ;
+
+create table addresses
+(
+	addressID int not null unique primary key auto_increment, 
+);
