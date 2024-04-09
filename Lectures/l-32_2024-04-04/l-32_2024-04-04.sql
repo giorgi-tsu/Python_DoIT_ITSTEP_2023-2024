@@ -42,4 +42,13 @@ select * from customers where city in ("NYC", "Paris") order by customerNumber; 
 
 select * from customers where city in ("NYC", "Paris") order by customerNumber limit 5; -- მონიშნავს ნიუ იორკის ან პარიზის კლიენტებს და დაალაგებს კლიენტების ნომრის მიხედვით
 
+/* regex-ები SQL-ში*/
+
+select * from customers where customerName like "%e"; -- მონიშნავს ყველა კლინეტს, სადაც customerName მთავრდება e-ზე.
+
+select * from customers where customerName like "e%"; -- მონიშნავს ყველა კლინეტს, სადაც customerName იწყება e-ზე.
+
+select * from custmers where customerName like "e%s"-- მონიშნავს ყველა კლინეტს, სადაც customerName იწყება e-ზე და მთავრდება ს-ზე.
+
+
 
