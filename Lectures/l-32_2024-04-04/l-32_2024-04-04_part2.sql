@@ -50,7 +50,19 @@ select * from addresses;
 
 delete from students where studentID = 1; -- ამ შემთხვევაში არ წაშლის, ვინაიდან students(studentID) ველი არის addresses(studentID) ველის მშობელი (parent).
 -- ეს მოხდა ვინაიდან addresses ცხრილში, ჩვენ მივუთითეთ, რომ ამ ცხრილის studentID არის foreign key და მისი references არის studentID students ცხრილიდან
--- (foreign key (studentID) references students(studentID)). Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails
+-- (foreign key (studentID) references students(studentID)). ამ შემთხვევაში ჩვენ ვცდილობთ მშობელი ველიდან წავშალოთ ისეთი სტრქონი, რომელიც შვილ ველში არის გამოყენებული. 
+-- ასეთი სტრიქონი კი არის ის სტრიქონი სადაც studentID არის 1. ეს გამოყენებული addresses ცხრილში სტრიქონში სადაც მისამართია Tbilisi. სწორედ ამიტომ აბრუნებს შემდეგ შეცდომას: 
+-- Error Code: 1451. Cannot delete or update a parent row: a foreign key constraint fails
 -- (`school`.`addresses`, CONSTRAINT `addresses_ibfk_1` FOREIGN KEY (`studentID`) REFERENCES `students` (`studentID`))
+-- მაგრამ ჩვენ თუ ჯერ ავდგებით და შვილ სტრიქონს წავშლით შვილ ველში, შემდეგ შევძლებ მშობელი ველიდანაც მშობელი სტრიქონის წაშლას. ამიტომ ჯერ წავშალოთ addresses ცხრილიდან 
+-- ჩანაწერი სადაც studentID=1:
 
+delete from addresses where studentID = 1;
+select * from addresses;
 
+-- შემდეგ კი უკვე შევძლებ წავშალოთ შესაბამისი სტრიქონი students ცხრილში studentID მშობელ ველში, ვიანაიდან იქ უკვე მნიშვნელობა 1 address ცხრილის foreign key studentID-ში
+-- გამოყენებული აღაარაა.
+
+delete from students where studentID = 1;
+
+select * from students; -- როგორც ვხედავთ წაიშალა ზემოთ თქმულიდან გამომინარე.
