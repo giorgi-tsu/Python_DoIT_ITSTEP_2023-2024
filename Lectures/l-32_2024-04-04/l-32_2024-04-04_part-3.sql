@@ -48,3 +48,5 @@ values
 ("Laptop", 3800, 1);
 
 select * from products
+
+-- timestamp: 01-30-32
