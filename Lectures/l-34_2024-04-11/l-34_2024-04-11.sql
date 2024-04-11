@@ -104,6 +104,7 @@ VALUES (1, '2022-01-01');
 INSERT INTO orders (studentID, orderDate) 
 VALUES 
 (4, '2023-05-02'),
-(3, '2024-07-03')
+(3, '2024-07-03');
 
 
+select * from new_students.orderdetails
