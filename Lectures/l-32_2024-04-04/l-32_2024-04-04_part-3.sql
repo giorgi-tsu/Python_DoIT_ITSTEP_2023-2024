@@ -48,12 +48,11 @@ values
 ("Laptop", 3800, 1);
 
 select * from products;
+
 select * from categories;
 
 -- timestamp: 01-30-32
 
 /* რამდენიმე ცხრილის ერთდროულად გამოტანა */
 
-select * from products
-cross join categories
-
+select * from products cross join categories;
