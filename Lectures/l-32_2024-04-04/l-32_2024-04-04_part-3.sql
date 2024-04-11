@@ -56,3 +56,4 @@ select * from categories;
 /* რამდენიმე ცხრილის ერთდროულად გამოტანა */
 
 select * from products cross join categories;
+
