@@ -50,3 +50,6 @@ values
 select * from products
 
 -- timestamp: 01-30-32
+
+/* რამდენიმე ცხრილის ერთდროულად გამოტანა */
+
