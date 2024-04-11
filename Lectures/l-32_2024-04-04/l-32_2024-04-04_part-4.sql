@@ -14,10 +14,22 @@ create database manytomany;
 
 use manytomany;
 
-create table ;
+create table products
+(
+	productID int auto_increment not null primary key,
+    name varchar(50) not null,
+    price int not null,
+    categoryID int not null
+);
 
-insert into manytomany 
-()
+insert into products
+(name, price, categoryID)
 values
-();
+("Apple", 2, 2),
+("Milk", 1, 2),
+("TV", 400, 1),
+("Laptop", 3800, 1);
 
+
+
+-- აქ უკვე ძაან ბოდიალი იყო და იუზლეს იყო ამ ვიდეოს ხელალა ყურება.
