@@ -1,83 +1,59 @@
+# ლექცია 35: L30_2024-04-15
+
+# ლექცია ჩატარდა 2024 წლის 28 მარტს
+# თემა: 1. UDP ჩათის აწყობა
+#       2. მრავალგანშშტოებიანი და ასინქრონული ექო სერვერის
+#         რეალიზაცია
+
+#*******************************************************************#
+
+# საჭირო ბიბლიოთეკების შემოტანა 
+
 from sqlalchemy import create_engine
-
 from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy import Column, ForeignKey
+from sqlalchemy import Integer, String, CHAR 
 
-from sqlalchemy import ForeignKey, Column, Integer, String, CHAR
 
-from random import choice
+#*******************************************************************#
 
-Base = declarative_base()
+# ლექციის კოდი
 
+Base = declarative_base()  # ამ ბრძანებით ვქმნით Base კლასს, 
+# რომელსაც შემდეგ ვიყენებთ ცხრილების შესაქმნელად. ამისათვის კი
+# ცხრილის კლასში მშობელ კლასად გადავემთ Base კლასს.
+
+# ქვემოთ მოცემული კლასი ქმნის ცხრილის სტრუქტურას.
+# მიღებულია, რომ კლასს და ამ კლასით შემქნილ ცხრილს ჰქონდეთ ერთი
+# და იგივე სახელები, ოღონდ კლასის სახელი იყოს მხოლობითში, ხოლო
+# ცხრილის სახელი იყოს მრავლობითში.
 class Person(Base):
-    __tablename__ = "Persons"
+    __tablename__ = "persons" # ცხრილის სახელი
 
-    id = Column("id", Integer, primary_key=True)
-    name = Column("name", String)
-    age = Column("age", Integer)
+    # ვქმნით კლასის ატრიბუტებს, რომელიც წარმოადგენს იმ ცხრილის
+    # სვეტებს(ატრიბუტებს), რომელიც შეიქმნება ამ კლასისგან.
 
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-    
-    def __repr__(self):
-        return f"name={self.name}, age={self.age}"
-    
-engine = create_engine("sqlite:///:memory:")
+    id = Column("id", Integer, primary_key=True) # ეს ქმნის ცხრილის
+    # სვეტებს, ისე როგორც sql-ში იყო. ვუთითებთ სვეტის(ატრიბუტის)
+    # სახელს, სვეტის ტიპს და არის თუ არა ის ცხრილის ძირითადი
+    # გასაღები.
 
-Base.metadata.create_all(bind=engine)
-
-name = ["Giorgi", "Mariami", "Elene"]
-age = [22, 23, 18]
-
-Session = sessionmaker(bind=engine)
-session = Session()
+    name =  Column("name", String)  # ქმნის ცხრილის სვეტს.
 
 
-for i in range(15):
-    person = Person(choice(name), choice(age))
-    session.add(person)
-    session.commit()
-
-# მეორე ვარიანტი ნახე ვიდეოში
-
-# all_persons = session.query(Person).all()
-# print(all_persons)
 
 
-# first_person = session.query(Person).all()[0]
-# print(first_person)
 
 
-# all_persons = session.query(Person).filter_by(name="Elene").all()
-# print(all_persons)
-
-# all_persons = session.query(Person).filter_by(age=22).all()
-# print(all_persons)
-
-# all_persons = session.query(Person).filter_by(name="Elene", age=22).all()
-# print(all_persons)
-
-# all_persons = session.query(Person).filter(Person.age > 22).all()
-# print(all_persons)
-
-# all_persons = session.query(Person).filter(Person.age > 22, Person.age < 30).all()
-# print(all_persons)
 
 
-# all_persons = session.query(Person).filter(Person.age > 22, Person.age < 30).first()
-# session.delete(all_persons) # როცა წაშლას ვაკეთებთ უნდა გადავეთ ობიექტი.
-# session.commit()
-
-# print(all_persons)
 
 
-# ele = session.query(Person).filter_by(name="Elene").first()
-# ele.age = 55
-# session.commit()
-
-# all_persons = session.query(Person).where((Person.age >= 22) | (Person.name == "Elene")).all()
-# print(all_persons)
 
 
-all_persons = session.query(Person).where((Person.age >= 22) & (Person.name == "Elene")).all()
-print(all_persons)
+
+
+
+
+
+
