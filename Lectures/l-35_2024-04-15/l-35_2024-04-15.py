@@ -8,7 +8,7 @@
 #*******************************************************************#
 
 # საჭირო ბიბლიოთეკების შემოტანა 
-
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from sqlalchemy import Column, ForeignKey
@@ -39,19 +39,37 @@ class Person(Base):
     # გასაღები.
 
     name =  Column("name", String)  # ქმნის ცხრილის სვეტს.
+    age = Column("age", Integer)
 
-    def __init__(self, name):
+    def __init__(self, name, age):
         self.name = name
+        self.age = age
 
     def __repr__(self, name):
         return f"Person(name={self.name})"
-    
+
+os.chdir("./lectures/l-35_2024-04-15/dbs/sqlite")
+print(os.getcwd())
+
+# engine = create_engine("sqlite:///") # ამ შემთხვევაში ბაზის ფაილს 
+# # არ შექმნის და ის მხოლოდ RAM-ში იარსებს.
+
+engine = create_engine("sqlite:///mydb.db") # ამ შემთხვევაში ბაზის
+# ფაილს შექმნის და ჩაწერს სამუშაო საქაღალდეში.
+
+Base.metadata.create_all(bind=engine)   # ამ შემთხვევაში შექმნის ყველა 
+# ცხრილს ყველა იმ კლასისგან, რომლის მშობელი კლასიც არის Base 
+# კლასი. საგულისხმოა ის, რომ სწორედ ამ ბრძანების დროს შექმნის 
+# ბაზასაც, რომელშიც ჩაწერს ყველა ამ ცხრილს. ამ ბრძანების გაშვებამდე 
+# ბაზა არ იქმნება. ზედა ბრძანებით იქმნება მხოლოდ ძრავი, რომელიც
+# განსაზღვრაავს ბაზის მახასიათებლებს და იმას, თუ სად უნდა იყოს ბაზის 
+# ფაილები. იმისათვის, რომ შეიქმნას ბაზა და მისი ფაილები ამას 
+# განსაზღვრავს სწორედ არგუმენტი bind, რომელიც ტოლია ძრავის. 
+# სწორედ ამ ძრავმა იცის რა ტიპის ბაზა იქმნება და სად უდნა შევინახოთ 
+# ეს ბაზა.
 
 
-
-
-
-
+timestamp l35_2024-04-15_00_18_42
 
 
 
