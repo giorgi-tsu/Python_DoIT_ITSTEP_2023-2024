@@ -20,13 +20,33 @@ class Person(Base):
         self.age = age
     
     def __repr__(self):
-        return f"Person(name={self.name})"
+        return f"name={self.name}, age={self.age}"
     
-engine = create_engine("sqlite:///")
+engine = create_engine("sqlite:///:memory:")
 
 Base.metadata.create_all(bind=engine)
 
 name = ["Giorgi", "Mariami", "Elene"]
 age = [22, 23, 18]
 
+Session = sessionmaker(bind=engine)
+session = Session()
 
+
+for i in range(15):
+    person = Person(choice(name), choice(age))
+    session.add(person)
+    session.commit()
+
+# მეორე ვარიანტი ნახე ვიდეოში
+
+# all_persons = session.query(Person).all()
+# print(all_persons)
+
+
+# first_person = session.query(Person).all()[0]
+# print(first_person)
+
+
+all_persons = session.query(Person).all()
+print(all_persons)
