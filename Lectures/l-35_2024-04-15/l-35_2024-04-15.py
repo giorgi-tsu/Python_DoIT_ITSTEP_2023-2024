@@ -48,5 +48,36 @@ for i in range(15):
 # print(first_person)
 
 
-all_persons = session.query(Person).all()
+# all_persons = session.query(Person).filter_by(name="Elene").all()
+# print(all_persons)
+
+# all_persons = session.query(Person).filter_by(age=22).all()
+# print(all_persons)
+
+# all_persons = session.query(Person).filter_by(name="Elene", age=22).all()
+# print(all_persons)
+
+# all_persons = session.query(Person).filter(Person.age > 22).all()
+# print(all_persons)
+
+# all_persons = session.query(Person).filter(Person.age > 22, Person.age < 30).all()
+# print(all_persons)
+
+
+# all_persons = session.query(Person).filter(Person.age > 22, Person.age < 30).first()
+# session.delete(all_persons) # როცა წაშლას ვაკეთებთ უნდა გადავეთ ობიექტი.
+# session.commit()
+
+# print(all_persons)
+
+
+# ele = session.query(Person).filter_by(name="Elene").first()
+# ele.age = 55
+# session.commit()
+
+# all_persons = session.query(Person).where((Person.age >= 22) | (Person.name == "Elene")).all()
+# print(all_persons)
+
+
+all_persons = session.query(Person).where((Person.age >= 22) & (Person.name == "Elene")).all()
 print(all_persons)
