@@ -40,6 +40,14 @@ class Person(Base):
 
     name =  Column("name", String)  # ქმნის ცხრილის სვეტს.
 
+    def __init__(self, name):
+        self.name = name
+
+    def __repr__(self, name):
+        return f"Person(name={self.name})"
+    
+
+
 
 
 
