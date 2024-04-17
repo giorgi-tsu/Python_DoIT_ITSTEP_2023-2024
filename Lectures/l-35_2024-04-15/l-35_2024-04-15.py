@@ -200,11 +200,15 @@ print(len(session.query(Person).all()))  # გამოიტანს ცხრ
 
 # all_persons = session.query(Person).filter_by(name="Giorgi").all()
 #  ამ შემთხვევაში წამოიღებს ყველა იმ ჩანაწერს სადაც სახელი არის Giorgi.
+
 # print(all_persons)
+
 
 # all_persons = session.query(Person).filter_by(age=22).all()
 #  ამ შემთხვევაში წამოიღებს ყველა იმ ჩანაწერს, სადაც ასაკი არის 22.
+
 # print(all_persons)
+
 
 # all_persons = session.query(Person).filter_by(name="Giorgi", age=22)\
 #     .all()
@@ -248,6 +252,7 @@ person_Giorgi = session.query(Person).filter_by(name="Giorgi")\
 # ამ შემთხვევაში წამოიღებს პირველვე ჩანაწერს, სადაც სახელი არის Giorgi.
 # მნიშვნელოვანია მივაქციოთ ყურადღება, რომ ამ შემთხვევაში ეს აბრუნებს
 # კლასს.
+
 print(person_Giorgi)
 print(type(person_Giorgi))
 
@@ -282,3 +287,4 @@ print(all_Giorgi)
 
 session.commit()
 
+# timestamp: l35_2024-04-15_01-14-09
