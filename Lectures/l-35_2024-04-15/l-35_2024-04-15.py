@@ -144,11 +144,11 @@ session.commit()  # ამ ბრძაზნებით დროებით 
 # წაიშლება. ამ ეტაპზე ცხრილში დამატებული პიროვნება უკვე ბაზაში 
 # არსებულ ცხრილშიც აისახება და ჩაიწერება.
 
-all_persons = session.query(Person).all()  # ამ ბრძანებით, მოგვაქვს
+# all_persons = session.query(Person).all()  # ამ ბრძანებით, მოგვაქვს
 # ბაზაში არსებული persons ცხრილი. ცხრილი მოაქვს პაითონის სისს 
 # სახით.
 
-print(all_persons)  # ამ შეთხვევავში წამოიღბს მხოლოდ 
+# print(all_persons)  # ამ შეთხვევავში წამოიღბს მხოლოდ 
 # [Person(name=Levani, age=15)] მონაცემს. 
 
 # timestamp l35_2024-04-15_00_38_43
@@ -183,17 +183,31 @@ session.commit()  # დროებით ფაილს ჩაწერს ბ
 
 print(len(session.query(Person).all()))  # გამოიტანს ცხრილში
 # არსებულ ყველა მონაცემის რაოდენობას. სხვაგვარად, ცხრილის სიგრძეს.
-print(session.query(Person).all())
 
-# ეხლა კი დავიწყოთ SQL ბრძანებებზე ვარჯიში.
+
+##### ეხლა კი დავიწყოთ SQL ბრძანებებზე ვარჯიში.
 
 # ყველას მონიშვნა
-all_persons = session.query(Person).all()  # ამ შემთხვევაში გამოაქვს
+# all_persons = session.query(Person).all()  # ამ შემთხვევაში გამოაქვს
 # ყველა სვეტის ყველა ჩანაწერი პაითონის სიის სახით.
 
-print(all_persons[0])  # გამოიტანს ცხრილის პირველ ჩანაწერს. 
+# print(all_persons[0])  # გამოიტანს ცხრილის პირველ ჩანაწერს. 
 
 # მაგალითად ეხლა რომ ჩვენ გვინდა გავფილტროთ სია რაღაცის მიხედვით.
 
 # სიის გასაფილტრად გვაქვს ორი მეთოდი filter და filter_by და 
 # ქვემოთ განვიხილავთ ორივეს. 
+
+# all_persons = session.query(Person).filter_by(name="Giorgi").all()
+#  ამ შემთხვევაში წამოიღებს ყველა იმ ჩანაწერს სადაც სახელი არის Giorgi.
+# print(all_persons)
+
+# all_persons = session.query(Person).filter_by(age=22).all()
+#  ამ შემთხვევაში წამოიღებს ყველა იმ ჩანაწერს, სადაც ასაკი არის 22.
+# print(all_persons)
+
+all_persons = session.query(Person).filter(Person.age>22).all()
+#  ამ შემთხვევაში წამოიღებს ყველა იმ ჩანაწერს, სადაც ასაკი არის 
+# 22-ზე მეტი
+
+print(all_persons)
