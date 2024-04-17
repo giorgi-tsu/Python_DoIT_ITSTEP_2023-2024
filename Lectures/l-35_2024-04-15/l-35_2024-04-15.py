@@ -206,8 +206,79 @@ print(len(session.query(Person).all()))  # გამოიტანს ცხრ
 #  ამ შემთხვევაში წამოიღებს ყველა იმ ჩანაწერს, სადაც ასაკი არის 22.
 # print(all_persons)
 
-all_persons = session.query(Person).filter(Person.age>22).all()
+# all_persons = session.query(Person).filter_by(name="Giorgi", age=22)\
+#     .all()
+# #  ამ შემთხვევაში წამოიღებს ყველა იმ ჩანაწერს სადაც სახელი არის Giorgi.
+# # და ასაკია რის 22
+
+# print(all_persons)
+
+
+# all_persons = session.query(Person).filter(Person.age>22).all()
 #  ამ შემთხვევაში წამოიღებს ყველა იმ ჩანაწერს, სადაც ასაკი არის 
 # 22-ზე მეტი
 
-print(all_persons)
+# print(all_persons)
+
+# all_persons = session.query(Person).filter(Person.age == 22).all()
+# #  ამ შემთხვევაში წამოიღებს ყველა იმ ჩანაწერს, სადაც ასაკი არის 
+# # 22.
+
+# print(all_persons)
+
+
+# all_persons = session.query(Person).filter(Person.age > 22)\
+#     .filter(Person.age < 30).all()
+# #  ამ შემთხვევაში წამოიღებს ყველა იმ ჩანაწერს, სადაც ასაკი არის 
+# # 22-ზე მეტი და 30-ზე ნაკლები.
+
+# print(all_persons)
+
+
+# all_persons = session.query(Person).filter((Person.age > 22)\
+#                                             & (Person.age < 30)).all()
+# # ამ შემთხვევაში წამოიღებს ყველა იმ ჩანაწერს, სადაც ასაკი არის 
+# # 22-ზე მეტი და 30-ზე ნაკლები.
+
+# print(all_persons)
+
+
+person_Giorgi = session.query(Person).filter_by(name="Giorgi")\
+    .first()
+# ამ შემთხვევაში წამოიღებს პირველვე ჩანაწერს, სადაც სახელი არის Giorgi.
+# მნიშვნელოვანია მივაქციოთ ყურადღება, რომ ამ შემთხვევაში ეს აბრუნებს
+# კლასს.
+print(person_Giorgi)
+print(type(person_Giorgi))
+
+
+# იგივეს გაკეთება შეგვიძლია იმ შემთხვევაში, თუ ჯერ დავაბრუნებთ 
+# კლასსების სიას ხოლო შემდეგ კი იდენქსით ამოვიღებთ პირველს.
+person_Giorgi = session.query(Person).filter_by(name="Giorgi")\
+    .all()[0]
+
+print(person_Giorgi)
+print(type(person_Giorgi))
+
+# შეგვიძლია ამოვიღოთ მეორეც, რომელიც არის Giorgi 23 წლის.
+person_Giorgi = session.query(Person).filter_by(name="Giorgi")\
+    .all()[1]
+
+print(person_Giorgi)
+print(type(person_Giorgi))
+
+# იმისათვის, რომ მონაცემთა ბაზიდან წავშალო ჩანაწერი, მჭირდება
+# ვიპოვო ის როგორც კლასი და გადავცე სესიის წაშლის მეთოდს.
+# მაგალითად, მიდნა წავშალო Giorgi 23 წლის.
+
+session.delete(person_Giorgi)  # ეს წაშლის დროებითი ბაზიდან.
+
+all_Giorgi = session.query(Person).filter_by(name="Giorgi")\
+    .all()
+print(all_Giorgi)
+
+# იმისათვის, რომ ძირითადი ბაზის ფაილიდანაც წავშალოთ საჭიროა 
+# გავუკეთოთ ქომითი.
+
+session.commit()
+
