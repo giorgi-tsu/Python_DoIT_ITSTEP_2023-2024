@@ -169,4 +169,4 @@ session.commit()
 
 print(len(session.query(Person).all()))  # გამოიტანს ცხრილში
 # არსებულ ყველა მონაცემის რაოდენობას. სხვაგვარად, ცხრილის სიგრძეს.
-
+print(session.query(Person).all())
