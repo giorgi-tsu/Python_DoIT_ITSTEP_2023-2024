@@ -23,7 +23,11 @@ def home(request):
     return HttpResponse("<h1>Home Page</h1>")
 #############
 
+def room(request):
+    return HttpResponse('<h1>Rooms Page</h1>')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home)
+    path('', home),
+    path('roo/', room)
 ]
