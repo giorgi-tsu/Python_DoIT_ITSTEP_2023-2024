@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+# Create your views here.
+
 rooms = [
     {'id': 1, "name": "Python SOLID Principles" },
     {'id': 2, "name": "Python Formatting"},
