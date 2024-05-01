@@ -4,4 +4,9 @@
 
   <h1>Home Page</h1>
 
+  {% for room in rooms %}
+
+    <h1>{{room.id}} {{room.name}}</h1>
+
+  {% endfor%}
 {% endblock %}
